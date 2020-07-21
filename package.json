@@ -14,10 +14,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
-  "engines": {
-    "node": "8.10.x",
-    "npm": "3.5.x"
-  },
+
   "devDependencies": {
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3"
