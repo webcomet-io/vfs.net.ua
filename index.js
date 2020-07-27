@@ -40,7 +40,7 @@ fastify.route({
 const start = async () => {
     try {
         await fastify.listen(3000);
-        fastify.log.info(`server listening on ${fastify.server.address().port}`);
+        fastify.log.info(`server listening on pam-param`);
     } catch (e) {
         fastify.log.error(e)
         process.exit(1)

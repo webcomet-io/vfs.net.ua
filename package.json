@@ -1,9 +1,8 @@
 {
   "name": "vfs.net.ua",
   "version": "0.1.0",
-  "private": true,
+  "main": "pages/api/main.js",
   "scripts": {
-
     "start": "node pages/api/main.js"
   },
   "engines": {
