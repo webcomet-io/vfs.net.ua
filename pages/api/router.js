@@ -1,5 +1,6 @@
 const importDir = require('directory-import');
 const path = require('path');
+const isObject = require('loadash/isObject');
 
 const schemas = importDir('./schemas', 'sync');
 
