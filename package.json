@@ -4,17 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "ng build",
+    "start": "node pages/api/main.js"
   },
   "dependencies": {
+    "directory-import": "^1.2.0",
     "fastify": "^3.1.1",
     "next": "9.4.4",
     "pg": "^8.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
-
   "devDependencies": {
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3"

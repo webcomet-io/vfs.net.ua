@@ -1,7 +1,2 @@
-const Main = () => {
-  return "<>"+
-    "<h1>Hello World</h1>"+
-  "</>";
-};
-console.log('index js file');
-export default Main;
+require('api/server');
+require('api/router');
