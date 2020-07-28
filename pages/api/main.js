@@ -43,7 +43,10 @@ fastify.get('/', async (request, reply) => {
 
 const start = async () => {
     try {
-        await fastify.listen(3000);
+        await fastify.listen(process.env.PORT || 3000, function (err) {
+            if (err) throw err
+            console.log(`server listening on ${fastify.server.address().port}`)
+        })
         fastify.log.info(`server listening on main.js`);
     } catch (e) {
         fastify.log.error(e)
