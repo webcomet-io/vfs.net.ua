@@ -1,53 +1,26 @@
-const { Client } = require('pg');
-
-const client = new Client({
-    connectionString: 'postgres://bbvkyfiioynfhu:d8cecdbf914e2c83243079911d844f1a1a5b1a44ec7ccab801c4b9e1ecc589c8@ec2-54-247-118-139.eu-west-1.compute.amazonaws.com:5432/d2lfrklo6dv0rm',
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-//console.log(process.env.DATABASE_URL);
-client.connect();
-
 const fastify = require('fastify')({logger: true});
-fastify.route({
-    method: 'GET',
-    url: '/api',
+const schema = {
     schema: {
-        // request needs to have a querystring with a `name` parameter
-        querystring: {
-            name: { type: 'string' }
-        },
-        // the response needs to be an object with an `hello` property of type 'string'
         response: {
             200: {
                 type: 'object',
                 properties: {
-                    hello: { type: 'string' }
+                    hello: {
+                        type: 'string'
+                    }
                 }
             }
         }
-    },
-    preHandler: async (request, reply) => {
-        fastify.log.info('prehendler message');
-    },
-    handler: async (request, reply) => {
-        return { hello: 'world' }
-    }
-
-});
-
-fastify.get('/', async (request, reply) => {
-    return { route: 'basic' }
-})
-
-const start = async () => {
-    try {
-        await fastify.listen(3000)
-        fastify.log.info(`server listening on ${fastify.server.address().port}`)
-    } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
     }
 }
-start()
+
+fastify
+    .get('/', schema, function (req, reply) {
+        reply
+            .send({ hello: 'world' })
+    })
+
+fastify.listen(process.env.PORT || 3000, err => {
+    if (err) throw err
+    console.log(`server listening on ${fastify.server.address().port}`)
+})
