@@ -1,8 +1,13 @@
-const fastify = reqire('fastify');
-const server = fastify({logger: true});
+const fastify = require('fastify')({
+    logger: true
+})
 
-server
-    .listen(3000)
-    .catch(console.error);
+fastify.register(require('./routes/user.js'))
 
-module.exports = {server};
+fastify.listen(3000, function (err, address) {
+    if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+    fastify.log.info(`server listening on ${address}`)
+})

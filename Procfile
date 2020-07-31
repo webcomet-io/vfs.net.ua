@@ -1,1 +1,1 @@
-web: node pages/api/main.js
+web: node pages/api/server.js

@@ -1,9 +1,9 @@
 {
   "name": "vfs.net.ua",
   "version": "0.1.0",
-  "main": "pages/api/main.js",
+  "main": "pages/api/server.js",
   "scripts": {
-    "start": "node pages/api/main.js"
+    "start": "node pages/api/server.js"
   },
   "engines": {
     "node": "12.x"
